@@ -4,6 +4,7 @@ public class MenuItem {
     String Menu;
     String Price;
     String Count;
+    String test;
 
     public MenuItem(String menu, String price, String count) {
         Menu = menu;
