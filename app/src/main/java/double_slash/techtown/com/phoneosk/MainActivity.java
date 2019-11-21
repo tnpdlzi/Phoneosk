@@ -116,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
+
             //doInBackground()로 부터 리턴된 값이 onPostExecute()의 매개변수로 넘어오므로 s를 출력한다.
             Toast.makeText(context,s,Toast.LENGTH_LONG).show();
             ArrayList<String> MenuNameParsed = new ArrayList<>();

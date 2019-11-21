@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "289907425034",
+    "firebase_url": "https://phoneosk-18ba1.firebaseio.com",
+    "project_id": "phoneosk-18ba1",
+    "storage_bucket": "phoneosk-18ba1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:289907425034:android:968e57722e032bde3d84f3",
+        "android_client_info": {
+          "package_name": "double_slash.techtown.com.phoneosk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "289907425034-g7peeidgs1bcnllhmdm5jfp7vv8t3ltt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaqmRcFAmsME7mpNhdQK-4pegAgx7saiM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "289907425034-g7peeidgs1bcnllhmdm5jfp7vv8t3ltt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import com.journeyapps.barcodescanner.CaptureManager;
@@ -24,6 +26,9 @@ public class QR_Activity extends AppCompatActivity {
 
     private CaptureManager capture;
     private DecoratedBarcodeView barcodeScannerView;
+    private FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private DatabaseReference fbRef = database.getReference("message");
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +44,6 @@ public class QR_Activity extends AppCompatActivity {
         capture = new CaptureManager(this, barcodeScannerView);
         capture.initializeFromIntent(getIntent(), savedInstanceState);
         capture.decode();
-
     }
 
     View.OnClickListener Click = new View.OnClickListener() {
@@ -56,9 +60,31 @@ public class QR_Activity extends AppCompatActivity {
     public void onResume(){
         super.onResume();
         capture.onResume();
-
     }
 
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode==IntentIntegrator.REQUEST_CODE) { // scan from ZXing
+            String storeID=null;
+            String vin = null;
+            boolean success=false;
+
+            IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+            if(result!=null)
+            {
+                String content = result.getContents();
+                if(content!=null)
+                {
+                    storeID=content;
+                    vin=storeID;
+                    success=true;
+                    fbRef.setValue(vin);
+                    Log.d("Ref", vin);
+                }
+            }
+        }
+    }
 //    @Override
 //    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
 //        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);

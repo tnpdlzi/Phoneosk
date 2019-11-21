@@ -13,11 +13,8 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import double_slash.techtown.com.phoneosk.MenuOrderedItem;
 
 import java.util.ArrayList;
 
@@ -32,7 +29,7 @@ public class FinalActivity extends AppCompatActivity {
     ArrayList<String> MenuPrice = new ArrayList<>();
     ArrayList<String> MenuCount = new ArrayList<>();
 
-    ArrayList <MenuOrderedItem> OrderedMenus = new ArrayList<>();
+    ArrayList <MenuItem> OrderedMenus = new ArrayList<>();
 
     TextView txtStoreName;
     TextView txtTableNum;
@@ -109,21 +106,21 @@ public class FinalActivity extends AppCompatActivity {
         public View getView(int position, View convertView, ViewGroup parent) {
             MenuOrderedView view = new MenuOrderedView(getApplicationContext());
 
-            MenuOrderedItem item = OrderedMenus.get(position);
+            MenuItem item = OrderedMenus.get(position);
             view.setTvMenu(item.getMenu());
             view.setTvPrice(item.getPrice());
             view.setTvCount_Cart(item.getCount());
             return view;
         }
 
-        public void addSelectedMenu(MenuOrderedItem view){
+        public void addSelectedMenu(MenuItem view){
             OrderedMenus.add(view);
         }
 
         public void readContact() {
             for (int i=0; i<MenuName.size() ; i++) {
                 if (Integer.parseInt(MenuCount.get(i)) != 0) {
-                    addSelectedMenu(new MenuOrderedItem(MenuName.get(i), MenuPrice.get(i), MenuCount.get(i)));
+                    addSelectedMenu(new MenuItem(MenuName.get(i), MenuPrice.get(i), MenuCount.get(i)));
                 }
             }
         }

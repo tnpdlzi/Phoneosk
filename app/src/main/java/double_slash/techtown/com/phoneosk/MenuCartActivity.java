@@ -47,7 +47,7 @@ public class MenuCartActivity extends AppCompatActivity {
     ArrayList<String> MenuCount = new ArrayList<>();
     ArrayList<String> nMenuPrice = new ArrayList<>();
 
-    ArrayList<MenuSelectedItem> SelectedMenus = new ArrayList<MenuSelectedItem>();
+    ArrayList<MenuItem> SelectedMenus = new ArrayList<MenuItem>();
 
     int AllPrice = 0;
     int CountSum = 0;
@@ -92,7 +92,7 @@ public class MenuCartActivity extends AppCompatActivity {
         linCart_Cart.setOnClickListener(Click);
     }
 
-    public ArrayList<MenuSelectedItem> getMenus(){
+    public ArrayList<MenuItem> getMenus(){
         return SelectedMenus;
     }
 
@@ -116,21 +116,21 @@ public class MenuCartActivity extends AppCompatActivity {
         public View getView(int position, View convertView, ViewGroup parent) {
             MenuSelectedView view = new MenuSelectedView(getApplicationContext());
 
-            MenuSelectedItem item = SelectedMenus.get(position);
+            MenuItem item = SelectedMenus.get(position);
             view.setTvMenu(item.getMenu());
             view.setTvPrice(item.getPrice());
             view.setTvCount_Cart(item.getCount());
             return view;
         }
 
-        public void addSelectedMenu(MenuSelectedItem view){
+        public void addSelectedMenu(MenuItem view){
             SelectedMenus.add(view);
         }
 
         public void readContact() {
             for (int i=0; i<MenuName.size() ; i++) {
                 if (Integer.parseInt(MenuCount.get(i)) != 0) {
-                    addSelectedMenu(new MenuSelectedItem(MenuName.get(i), MenuPrice.get(i), MenuCount.get(i)));
+                    addSelectedMenu(new MenuItem(MenuName.get(i), MenuPrice.get(i), MenuCount.get(i)));
                 }
             }
         }
@@ -269,7 +269,7 @@ public class MenuCartActivity extends AppCompatActivity {
                             tvAllCount_Cart.setText(String.valueOf(CountSum));
                             SumPrice();
                             tvAllPrice_Cart.setText(new StringBuffer(strAllPrice).reverse().toString() + "원");
-                            SelectedMenus.set(i, new MenuSelectedItem(tvSelectedMenu.getText().toString(), tvSelectedPrice.getText().toString(), tvCount_Cart.getText().toString()));
+                            SelectedMenus.set(i, new MenuItem(tvSelectedMenu.getText().toString(), tvSelectedPrice.getText().toString(), tvCount_Cart.getText().toString()));
 
                             if (Count == 0) {
                                 MenuName.remove(i);
