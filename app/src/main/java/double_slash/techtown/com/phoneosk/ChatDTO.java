@@ -2,28 +2,36 @@ package double_slash.techtown.com.phoneosk;
 
 public class ChatDTO {
 
-    private String userName;
-    private String message;
+    public String table;
+    public String message;
 
     public ChatDTO() {}
-    public ChatDTO(String userName, String message) {
-        this.userName = userName;
+    public ChatDTO(String table, String message) {
+        this.table = table;
         this.message = message;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public String getTable() {
+        return table;
+    }
+
+    public void setTable(String table) {
+        this.table = table;
+    }
+
+    public String getMessage() {
+        return message;
     }
 
     public void setMessage(String message) {
         this.message = message;
     }
 
-    public String getUserName() {
-        return userName;
-    }
-
-    public String getMessage() {
-        return message;
+    @Override
+    public String toString() {
+        return "ChatDTO{" +
+                "table='" + table + '\'' +
+                ", message='" + message + '\'' +
+                '}';
     }
 }

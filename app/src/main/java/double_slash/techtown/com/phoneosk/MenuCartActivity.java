@@ -20,10 +20,14 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import double_slash.techtown.com.Phoneosk.R;
 
@@ -52,6 +56,9 @@ public class MenuCartActivity extends AppCompatActivity {
     int AllPrice = 0;
     int CountSum = 0;
     String strAllPrice;
+
+    private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+    private DatabaseReference databaseReference = firebaseDatabase.getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -317,6 +324,28 @@ public class MenuCartActivity extends AppCompatActivity {
             } else {
                 Log.d("scanning", "scanning");
                 Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
+
+                //realtime DB 구현
+
+                String table = result.getContents();
+                Log.d("table", table);
+                String message = MenuName.toString() + MenuPrice.toString() + MenuCount.toString() + edtRequest_Cart.getText().toString();
+                Log.d("message", message);
+
+                ChatDTO chat = new ChatDTO(table, message); //ChatDTO를 이용하여 데이터를 묶는다.
+                Log.d("chat", chat.toString());
+
+//                Map<String, ChatDTO> users = new HashMap<>();
+//                users.put("1", new ChatDTO(table, message));
+//                users.put("1", new ChatDTO("4", "hi im donggun"));
+
+//                databaseReference.child("Phoneosk").push().setValue(users);
+//                databaseReference.child("Phoneosk").child("1").push().setValue(chat); // 데이터 푸쉬
+
+                String key = databaseReference.child("Phoneosk").push().getKey();
+                databaseReference.child("Phoneosk").child(key).setValue(chat);
+
+
                 getit();
             }
         } else {
