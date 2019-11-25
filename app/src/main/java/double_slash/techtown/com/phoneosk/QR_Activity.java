@@ -28,13 +28,14 @@ public class QR_Activity extends AppCompatActivity {
     private DecoratedBarcodeView barcodeScannerView;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference fbRef = database.getReference("message");
+    public Bundle savedBundle;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qr_);
-
+        savedBundle = savedInstanceState;
         btnBack_QR = (ImageView)findViewById(R.id.btnBack_QR);
 
         btnBack_QR.setOnClickListener(Click);
@@ -62,29 +63,30 @@ public class QR_Activity extends AppCompatActivity {
         capture.onResume();
     }
 
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if(requestCode==IntentIntegrator.REQUEST_CODE) { // scan from ZXing
-            String storeID=null;
-            String vin = null;
-            boolean success=false;
-
-            IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
-            if(result!=null)
-            {
-                String content = result.getContents();
-                if(content!=null)
-                {
-                    storeID=content;
-                    vin=storeID;
-                    success=true;
-                    fbRef.setValue(vin);
-                    Log.d("Ref", vin);
-                }
-            }
-        }
-    }
+//    @Override
+//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//
+//        if(requestCode==IntentIntegrator.REQUEST_CODE) { // scan from ZXing
+//            String storeID=null;
+//            String vin = null;
+//            boolean success=false;
+//
+//            IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+//            if(result!=null)
+//            {
+//                String content = result.getContents();
+//                if(content!=null)
+//                {
+//                    storeID=content;
+//                    vin=storeID;
+//                    success=true;
+//                    fbRef.setValue(vin);
+//                    Log.d("Ref", vin);
+//                }
+//            }
+//        }
+//    }
 //    @Override
 //    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
 //        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
@@ -97,7 +99,8 @@ public class QR_Activity extends AppCompatActivity {
 //            } else {
 //                Log.d("scanning", "scanning");
 //                Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
-//
+//                Intent intent1 = new Intent(this, FinalActivity.class);
+//                startActivity(intent1, savedBundle);
 //            }
 //        } else {
 //            Log.d("else", "else");

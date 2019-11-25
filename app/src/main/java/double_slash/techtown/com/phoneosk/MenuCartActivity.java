@@ -312,13 +312,12 @@ public class MenuCartActivity extends AppCompatActivity {
             Log.d("in", "in");
             if (result.getContents() == null) {
                 Log.d("null", "null");
-//                Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
-                getit();
+                Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
 
             } else {
                 Log.d("scanning", "scanning");
                 Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
-
+                getit();
             }
         } else {
             Log.d("else", "else");
