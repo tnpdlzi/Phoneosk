@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -105,11 +106,10 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(Void... voids) {
-            String result; // 요청 결과를 저장할 변수.
-            double_slash.techtown.com.phoneosk.RequestHttpUrlConnection requestHttpURLConnection = new double_slash.techtown.com.phoneosk.RequestHttpUrlConnection();
-            result = requestHttpURLConnection.request(url, values); // 해당 URL로 부터 결과물을 얻어온다.
-            Log.d("data", values.toString());
 
+            String result; // 요청 결과를 저장할 변수.
+            RequestHttpUrlConnection requestHttpURLConnection = new RequestHttpUrlConnection();
+            result = requestHttpURLConnection.request(url, values); // 해당 URL로 부터 결과물을 얻어온다.
             return result;
         }
 
@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
             intent.putStringArrayListExtra("MenuNameParsed", MenuNameParsed);
             intent.putStringArrayListExtra("MenuPriceParsed", MenuPriceParsed);
 
-            context.startActivity(intent);
+            context.startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
 
         }
 

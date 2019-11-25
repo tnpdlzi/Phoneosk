@@ -4,6 +4,7 @@
     package="double_slash.techtown.com.Phoneosk">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -12,11 +13,13 @@
         android:label="Phoneosk"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
         <activity android:name="double_slash.techtown.com.phoneosk.MenuCartActivity"/>
         <activity android:name="double_slash.techtown.com.phoneosk.FinalActivity"/>
         <activity android:name="double_slash.techtown.com.phoneosk.MenuActivity"/>
         <activity android:name="double_slash.techtown.com.phoneosk.QR_Activity"/>
+
         <activity android:name="double_slash.techtown.com.phoneosk.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
