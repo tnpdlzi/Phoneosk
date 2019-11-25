@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
     //content value
     ContentValues contentValues;
 
+    public String storeID;
+
 //    ArrayList<String> MenuNameParsed = new ArrayList<>();
 //    ArrayList<String> MenuPriceParsed = new ArrayList<>();
 
@@ -67,7 +69,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 String input = edtInput.getText().toString();
+                storeID = input;
                 contentValues.put("key", input);
+
 
                 HttpAsyncTask httpAsyncTask = new HttpAsyncTask(url,contentValues, getApplicationContext());
                 httpAsyncTask.execute();
@@ -130,6 +134,7 @@ public class MainActivity extends AppCompatActivity {
 
             intent.putStringArrayListExtra("MenuNameParsed", MenuNameParsed);
             intent.putStringArrayListExtra("MenuPriceParsed", MenuPriceParsed);
+            intent.putExtra("storeID", storeID);
 
             context.startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
 
@@ -162,6 +167,6 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-    }
 
+    }
 }

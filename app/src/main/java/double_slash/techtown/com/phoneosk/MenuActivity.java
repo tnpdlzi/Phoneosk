@@ -47,6 +47,8 @@ public class MenuActivity extends AppCompatActivity {
 
     ArrayList<MenuItem> Menus = new ArrayList<MenuItem>();
 
+    public String storeID;
+
     int ReceiveActivity =0;
 //    int MenuNameParsedSize = 0;
 
@@ -65,6 +67,7 @@ public class MenuActivity extends AppCompatActivity {
 
         Intent intent = this.getIntent();
 
+        storeID = intent.getStringExtra("storeID");
         MenuNameParsed = intent.getStringArrayListExtra("MenuNameParsed");
         MenuPriceParsed = intent.getStringArrayListExtra("MenuPriceParsed");
         for (int i=0 ; i<MenuNameParsed.size() ; i++) {
@@ -168,6 +171,7 @@ public class MenuActivity extends AppCompatActivity {
                     intent.putStringArrayListExtra("MenuName", MenuName);
                     intent.putStringArrayListExtra("MenuPrice", MenuPrice);
                     intent.putStringArrayListExtra("MenuCount", MenuCount);
+                    intent.putExtra("storeID", storeID);
 
                     startActivity(intent);
                     break;

@@ -56,6 +56,7 @@ public class MenuCartActivity extends AppCompatActivity {
     int AllPrice = 0;
     int CountSum = 0;
     String strAllPrice;
+    public String storeID;
 
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference = firebaseDatabase.getReference();
@@ -73,6 +74,7 @@ public class MenuCartActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this.getIntent());
 
+        storeID = intent.getStringExtra("storeID");
         MenuName = intent.getStringArrayListExtra("MenuName");
         MenuPrice = intent.getStringArrayListExtra("MenuPrice");
         MenuCount = intent.getStringArrayListExtra("MenuCount");
@@ -342,9 +344,12 @@ public class MenuCartActivity extends AppCompatActivity {
 //                databaseReference.child("Phoneosk").push().setValue(users);
 //                databaseReference.child("Phoneosk").child("1").push().setValue(chat); // 데이터 푸쉬
 
-                String key = databaseReference.child("Phoneosk").push().getKey();
-                databaseReference.child("Phoneosk").child(key).setValue(chat);
+//                String key = databaseReference.child("Phoneosk").push().getKey();
+//                databaseReference.child("Phoneosk").child("1").push().setValue(chat);
 
+                Map<String, Object> chatupdate = new HashMap<>();
+                chatupdate.put(table, message);
+                databaseReference.child("Phoneosk").child(storeID).updateChildren(chatupdate);
 
                 getit();
             }
