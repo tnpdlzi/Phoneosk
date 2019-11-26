@@ -5,53 +5,59 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity"
+    android:background="@drawable/splash"
     android:orientation="vertical">
-
-    <Button
-        android:id="@+id/btnMain"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="실행"
-        android:layout_gravity="center_horizontal"/>
-
-    <EditText
-        android:id="@+id/edtInput"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="0dp"
+        android:layout_weight="10"></LinearLayout>
 
-
-    <Button
-        android:id="@+id/btnClick"
-        android:layout_width="75dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="기릿"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <TextView
-        android:id="@+id/txt"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="json형식"/>
+        android:layout_height="0dp"
+        android:layout_weight="15"
+        android:orientation="vertical">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#000000"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="240dp"
+            android:text="●"
+            android:textColor="#ff4b00"
+            android:textSize="20sp" />
 
-    <TextView
-        android:id="@+id/txtParsed"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="json 파싱한 형식"/>
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:text="MINI MENU"
+            android:textColor="#ff4b00"
+            android:textSize="35sp" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="10dp"
+            android:textSize="16sp"
+            android:textColor="#4d4d4d"
+            android:textStyle="bold"
+            android:typeface="sans"
+            android:text="내 손 안의 작은 메뉴판"/>
 
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="60dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="0dp"
+        android:layout_weight="10">
 
-
-
-
+        <Button
+            android:id="@+id/btnstart"
+            android:layout_width="10dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="실행" />
+    </LinearLayout>
 </LinearLayout>

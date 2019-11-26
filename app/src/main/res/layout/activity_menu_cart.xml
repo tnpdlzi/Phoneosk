@@ -287,13 +287,13 @@
                         android:layout_marginLeft="16dp"/>
 
                 <TextView
-                        android:id="@+id/tvOrder_Cart"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="주문하기"
-                        android:textColor="#000000"
-                        android:textStyle="bold"
-                        android:layout_gravity="center"/>
+                    android:id="@+id/tvOrder_Cart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="주문하기"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
