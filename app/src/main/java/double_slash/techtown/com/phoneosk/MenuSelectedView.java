@@ -35,6 +35,7 @@ public class MenuSelectedView extends LinearLayout {
         tvCount_Cart = (TextView) findViewById(R.id.tvCount_Cart);
     }
 
+
     public void setTvMenu(String menu) {
         tvSelectedMenu.setText(menu);
     }

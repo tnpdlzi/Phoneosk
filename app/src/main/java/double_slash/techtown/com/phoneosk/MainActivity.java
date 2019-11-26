@@ -83,14 +83,18 @@ public class MainActivity extends AppCompatActivity {
                 String input = result.getContents();
                 storeID = input;
                 contentValues.put("key", input);
+
+
                 HttpAsyncTask httpAsyncTask = new HttpAsyncTask(url, contentValues, getApplicationContext());
                 httpAsyncTask.execute();
 
             }
+
         } else {
             Log.d("else", "else");
             super.onActivityResult(requestCode, resultCode, intent);
         }
+
     }
 
     class HttpAsyncTask extends AsyncTask<Void, Void, String> {
@@ -113,7 +117,6 @@ public class MainActivity extends AppCompatActivity {
             RequestHttpUrlConnection requestHttpURLConnection = new RequestHttpUrlConnection();
             result = requestHttpURLConnection.request(url, values); // 해당 URL로 부터 결과물을 얻어온다.
             Log.d("data", values.toString());
-
             return result;
         }
 
@@ -126,6 +129,7 @@ public class MainActivity extends AppCompatActivity {
             ArrayList<String> MenuNameParsed = new ArrayList<>();
             ArrayList<String> MenuPriceParsed = new ArrayList<>();
             //  txt.setText(s);
+            //Toast.makeText(context, MenuNameParsed.get(1), Toast.LENGTH_LONG).show();
 
             receiveArray(s, MenuNameParsed, MenuPriceParsed);
 
@@ -134,8 +138,10 @@ public class MainActivity extends AppCompatActivity {
             intent.putStringArrayListExtra("MenuNameParsed", MenuNameParsed);
             intent.putStringArrayListExtra("MenuPriceParsed", MenuPriceParsed);
             intent.putExtra("storeID", storeID);
+            intent.putExtra("Check", "OK");
 
-            context.startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+           startActivity(intent);
+           // context.startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
 
         }
 
@@ -155,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
                     //             mItems.add(new Item(dataJsonObject.getString("nation")+i,dataJsonObject.getString("name")+i,
                     //                     dataJsonObject.getString("address")+i,dataJsonObject.getString("age")));
 
-                    MenuNameParsed.add(i, dataJsonObject.getString("menuname"));
+                    MenuNameParsed.add(i, dataJsonObject.getString("menuName"));
                     MenuPriceParsed.add(i, dataJsonObject.getString("price"));
                 }
                 // Recycler Adapter 에서 데이터 변경 사항을 체크하라는 함수 호출
@@ -163,6 +169,8 @@ public class MainActivity extends AppCompatActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+
+
         }
     }
 
