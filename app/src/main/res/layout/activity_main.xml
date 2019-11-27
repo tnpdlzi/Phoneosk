@@ -1,63 +1,50 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".MainActivity"
+    android:layout_height="match_parent"
     android:background="@drawable/splash"
-    android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="10"></LinearLayout>
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="15"
-        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="240dp"
-            android:text="●"
-            android:textColor="#ff4b00"
-            android:textSize="20sp" />
+    <Button
+        android:id="@+id/btnstart"
+        android:layout_width="250dp"
+        android:layout_height="80dp"
+        android:layout_weight="5"
+        android:background="@drawable/cartround"
+        android:fontFamily="@font/fontb"
+        android:gravity="center"
+        android:text="시작하기"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#0C0C0C"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="35dp"
-            android:text="MINI MENU"
-            android:textColor="#ff4b00"
-            android:textSize="35sp" />
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/fontb"
+        android:text="PhoneOsk"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        android:textColor="#251D38"
+        android:paddingBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnstart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="10dp"
-            android:textSize="16sp"
-            android:textColor="#4d4d4d"
-            android:textStyle="bold"
-            android:typeface="sans"
-            android:text="내 손 안의 작은 메뉴판"/>
+    <ImageView
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:src="@drawable/how2"
+        android:onClick="OnClickHandler"
+        android:id="@+id/email"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="MissingConstraints" />
 
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="60dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_height="0dp"
-        android:layout_weight="10">
-
-        <Button
-            android:id="@+id/btnstart"
-            android:layout_width="10dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:text="실행" />
-    </LinearLayout>
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

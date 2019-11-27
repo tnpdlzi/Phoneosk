@@ -1,6 +1,7 @@
 package double_slash.techtown.com.phoneosk;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +9,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -47,6 +50,15 @@ public class MainActivity extends AppCompatActivity {
         Button button = (Button) findViewById(R.id.btnstart);
         button.setOnClickListener(Click);
 
+    }
+
+    public void OnClickHandler (View view)
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("서비스에 등록하시고 싶은 점주님, 버그가 발생할 경우 문의 주세요!").setMessage("tnpdlzi@naver.com");
+        AlertDialog alertDialog = builder.create();
+
+        alertDialog.show();
     }
 
     View.OnClickListener Click = new View.OnClickListener() {
