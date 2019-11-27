@@ -195,17 +195,6 @@
                     android:layout_marginRight="30dp"/>
 
                 <TextView
-                    android:id="@+id/txtDate_receipt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="2019.07.24. 오후 06:30"
-                    android:textSize="10dp"
-                    android:textColor="#6E6E6E"
-                    android:textStyle="bold"
-                    android:textAlignment="viewEnd"
-                    android:layout_marginRight="30dp"/>
-
-                <TextView
                     android:id="@+id/txtAddress_receipt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

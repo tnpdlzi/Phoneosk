@@ -31,12 +31,15 @@ public class FinalActivity extends AppCompatActivity {
 
     ArrayList <MenuItem> OrderedMenus = new ArrayList<>();
 
+    String name = null;
+    String address = null;
+    String table;
+
     TextView txtStoreName;
     TextView txtTableNum;
     TextView txtRequestX;
     TextView txtRequestExist;
     TextView txtPrice_receipt;
-    TextView txtDate_receipt;
     TextView txtAddress_receipt;
 
     RelativeLayout rel_request;
@@ -55,13 +58,15 @@ public class FinalActivity extends AppCompatActivity {
         txtRequestX = (TextView)findViewById(R.id.txtRequestX);
         txtRequestExist = (TextView)findViewById(R.id.txtRequestExist);
         txtPrice_receipt = (TextView)findViewById(R.id.txtPrice_receipt);
-        txtDate_receipt = (TextView)findViewById(R.id.txtDate_receipt);
         txtAddress_receipt = (TextView)findViewById(R.id.txtAddress_receipt);
 
         rel_request = (RelativeLayout)findViewById(R.id.rel_request);
 
         Intent intent = new Intent(this.getIntent());
 
+        name = intent.getStringExtra("name");
+        address = intent.getStringExtra("address");
+        table = intent.getStringExtra("table");
         MenuName = intent.getStringArrayListExtra("MenuName");
         MenuPrice = intent.getStringArrayListExtra("MenuPrice");
         MenuCount = intent.getStringArrayListExtra("MenuCount");
@@ -76,6 +81,12 @@ public class FinalActivity extends AppCompatActivity {
             txtRequestX.setText("");
         }
         txtRequestExist.setText(request);
+
+        txtAddress_receipt.setText(address);
+        txtStoreName.setText(name);
+        String tableNum = "Table No. " + table;
+        txtTableNum.setText(tableNum);
+
 
         adapter = new MenuOrderedAdapter();
         adapter.readContact();

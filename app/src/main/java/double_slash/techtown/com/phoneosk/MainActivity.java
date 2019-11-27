@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
             } else {
                 Log.d("scanning", "scanning");
-                Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
+//                Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
 
                 String input = result.getContents();
                 storeID = input;
@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
             super.onPostExecute(s);
             Log.d("s", s);
             //doInBackground()로 부터 리턴된 값이 onPostExecute()의 매개변수로 넘어오므로 s를 출력한다.
-            Toast.makeText(context, s, Toast.LENGTH_LONG).show();
+//            Toast.makeText(context, s, Toast.LENGTH_LONG).show();
             ArrayList<String> MenuNameParsed = new ArrayList<>();
             ArrayList<String> MenuPriceParsed = new ArrayList<>();
 

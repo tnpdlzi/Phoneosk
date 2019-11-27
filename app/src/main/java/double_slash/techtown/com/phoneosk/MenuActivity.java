@@ -107,7 +107,7 @@ public class MenuActivity extends AppCompatActivity {
         } catch (Exception e) { }
 
 
-        Toast.makeText(this, MenuNameParsed.size() + "",Toast.LENGTH_LONG).show();
+//        Toast.makeText(this, MenuNameParsed.size() + "",Toast.LENGTH_LONG).show();
 
 //        if(MenuNameParsed != null) {
 //            MenuNameParsedSize = MenuNameParsed.size();
@@ -193,6 +193,9 @@ public class MenuActivity extends AppCompatActivity {
                     intent.putStringArrayListExtra("MenuPrice", MenuPrice);
                     intent.putStringArrayListExtra("MenuCount", MenuCount);
                     intent.putExtra("storeID", storeID);
+                    intent.putExtra("name", name);
+                    intent.putExtra("address", address);
+
 
                     startActivity(intent);
                     break;
@@ -365,7 +368,7 @@ public class MenuActivity extends AppCompatActivity {
             super.onPostExecute(s);
             Log.d("STs", s);
             //doInBackground()로 부터 리턴된 값이 onPostExecute()의 매개변수로 넘어오므로 s를 출력한다.
-            Toast.makeText(context, s, Toast.LENGTH_LONG).show();
+//            Toast.makeText(context, s, Toast.LENGTH_LONG).show();
 
 
             //  txt.setText(s);
