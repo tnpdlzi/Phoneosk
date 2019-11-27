@@ -57,7 +57,9 @@ public class MenuCartActivity extends AppCompatActivity {
     int CountSum = 0;
     String strAllPrice;
     public String storeID;
-
+    String name = null;
+    String address = null;
+    String table;
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference = firebaseDatabase.getReference();
 
@@ -75,6 +77,8 @@ public class MenuCartActivity extends AppCompatActivity {
         Intent intent = new Intent(this.getIntent());
 
         storeID = intent.getStringExtra("storeID");
+        name = intent.getStringExtra("name");
+        address = intent.getStringExtra("address");
         MenuName = intent.getStringArrayListExtra("MenuName");
         MenuPrice = intent.getStringArrayListExtra("MenuPrice");
         MenuCount = intent.getStringArrayListExtra("MenuCount");
@@ -161,6 +165,8 @@ public class MenuCartActivity extends AppCompatActivity {
                     intent1.putStringArrayListExtra("MenuPriceParsed", MenuPrice);
                     intent1.putStringArrayListExtra("MenuCountParsed", MenuCount);
                     intent1.putExtra("Check", "OK");
+                    intent1.putExtra("name", name);
+                    intent1.putExtra("address", address);
                     startActivity(intent1);
                     break;
 
@@ -325,11 +331,11 @@ public class MenuCartActivity extends AppCompatActivity {
 
             } else {
                 Log.d("scanning", "scanning");
-                Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
+//                Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
 
                 //realtime DB 구현
 
-                String table = result.getContents();
+                table = result.getContents();
                 Log.d("table", table);
                 String message = MenuName.toString() + MenuPrice.toString() + MenuCount.toString() + edtRequest_Cart.getText().toString();
                 Log.d("message", message);
@@ -366,6 +372,9 @@ public class MenuCartActivity extends AppCompatActivity {
         intent1.putStringArrayListExtra("MenuCount", MenuCount);
         intent1.putExtra("AllPrice", tvAllPrice_Cart.getText());
         intent1.putExtra("request", edtRequest_Cart.getText().toString());
+        intent1.putExtra("name", name);
+        intent1.putExtra("address", address);
+        intent1.putExtra("table", table);
         //getText의 반환값은 charsequence이므로 toString() 필요!!
         intent1.putExtra("Check", "OK");
         startActivity(intent1);
