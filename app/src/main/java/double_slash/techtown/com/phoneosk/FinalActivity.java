@@ -3,18 +3,26 @@ package double_slash.techtown.com.phoneosk;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Layout;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -53,17 +61,35 @@ public class FinalActivity extends AppCompatActivity {
 
         list_receipt = (ListView)findViewById(R.id.list_receipt);
 
+        LinearLayout linFinal = (LinearLayout) findViewById(R.id.linFinal);
         txtStoreName = (TextView)findViewById(R.id.txtStoreName);
         txtTableNum = (TextView)findViewById(R.id.txtTableNum);
         txtRequestX = (TextView)findViewById(R.id.txtRequestX);
         txtRequestExist = (TextView)findViewById(R.id.txtRequestExist);
         txtPrice_receipt = (TextView)findViewById(R.id.txtPrice_receipt);
         txtAddress_receipt = (TextView)findViewById(R.id.txtAddress_receipt);
-
         rel_request = (RelativeLayout)findViewById(R.id.rel_request);
+        ImageView btnBack_receipt = (ImageView)findViewById(R.id.btnBack_receipt);
 
         Intent intent = new Intent(this.getIntent());
 
+
+        btnBack_receipt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        linFinal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                Toast.makeText(getApplicationContext(), "뒤로가기 버튼을 한번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT).show();
+            }
+        });
         name = intent.getStringExtra("name");
         address = intent.getStringExtra("address");
         table = intent.getStringExtra("table");
@@ -204,5 +230,6 @@ public class FinalActivity extends AppCompatActivity {
         listView.setLayoutParams(params);
         listView.requestLayout();
     }
+
 
 }

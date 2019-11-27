@@ -20,9 +20,9 @@
             android:id="@+id/btnBack_receipt"
             android:layout_width="56dp"
             android:layout_height="56dp"
-            android:src="@drawable/back"
             android:layout_alignParentBottom="true"
-            android:scaleType="fitXY"/>
+            android:scaleType="fitXY"
+            android:src="@drawable/back" />
 
         <TextView
             android:layout_width="match_parent"
