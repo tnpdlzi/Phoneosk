@@ -381,7 +381,7 @@ public class MenuActivity extends AppCompatActivity {
             Log.d("phone", phone);
 
 
-            time = open +" ~ " + close;
+            time = open +"시 ~ " + close + "시";
             tvTime.setText(time);
 
 
