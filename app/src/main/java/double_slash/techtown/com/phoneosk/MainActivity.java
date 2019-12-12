@@ -150,11 +150,6 @@ public class MainActivity extends AppCompatActivity {
             intent.putStringArrayListExtra("MenuPriceParsed", MenuPriceParsed);
             intent.putExtra("storeID", storeID);
             intent.putExtra("Check", "OK");
-            intent.putExtra("name", name);
-            intent.putExtra("address", address);
-            intent.putExtra("phone", phone);
-            intent.putExtra("open", open);
-            intent.putExtra("close", close);
 
            startActivity(intent);
            // context.startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
