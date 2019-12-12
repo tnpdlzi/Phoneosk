@@ -28,11 +28,6 @@ import double_slash.techtown.com.Phoneosk.R;
 public class MainActivity extends AppCompatActivity {
 
     public String storeID = null;
-    String name = null;
-    String address = null;
-    String phone = null;
-    String open = null;
-    String close = null;
     ContentValues contentValues;
 
     String url="http://hycurium.cafe24.com/phoneosk/menu.jsp";
