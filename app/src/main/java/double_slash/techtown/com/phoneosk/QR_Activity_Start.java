@@ -36,10 +36,6 @@ import double_slash.techtown.com.Phoneosk.R;
 public class QR_Activity_Start extends AppCompatActivity {
 
     ImageView btnBack_QR;
-//        public String storeID;
-//        ContentValues contentValues;
-//        String url = "http://hycurium.cafe24.com/minimenuProto/jsontest.jsp";
-
 
     private CaptureManager capture;
     private DecoratedBarcodeView barcodeScannerView;

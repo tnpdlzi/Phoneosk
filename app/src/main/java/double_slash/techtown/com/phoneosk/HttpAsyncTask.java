@@ -5,8 +5,6 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
-import double_slash.techtown.com.phoneosk.RequestHttpUrlConnection;
-
 public class HttpAsyncTask extends AsyncTask<Void, Void, String> {
 
     private String url;

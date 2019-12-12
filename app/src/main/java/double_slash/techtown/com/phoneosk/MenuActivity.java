@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,15 +16,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import org.json.JSONArray;
+import androidx.appcompat.app.AppCompatActivity;
+
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import double_slash.techtown.com.phoneosk.MenuCartActivity;
 
 import java.util.ArrayList;
 
@@ -408,20 +404,7 @@ public class MenuActivity extends AppCompatActivity {
                 phone = wrapObject.getString("phone");
                 open = wrapObject.getString("open");
                 close = wrapObject.getString("close");
-//                JSONArray jsonArray = new JSONArray(wrapObject.getString("DATAS"));
-//                for (int i = 0; i < jsonArray.length(); i++) {
-//                    // Array 에서 하나의 JSONObject 를 추출
-//                    JSONObject dataJsonObject = jsonArray.getJSONObject(i);
-//                    // 추출한 Object 에서 필요한 데이터를 표시할 방법을 정해서 화면에 표시
-//                    // 필자는 RecyclerView 로 데이터를 표시 함
-//                    //             mItems.add(new Item(dataJsonObject.getString("nation")+i,dataJsonObject.getString("name")+i,
-//                    //                     dataJsonObject.getString("address")+i,dataJsonObject.getString("age")));
-//
-//                    MenuNameParsed.add(i, dataJsonObject.getString("menuName"));
-//                    MenuPriceParsed.add(i, dataJsonObject.getString("price"));
-//                }
-                // Recycler Adapter 에서 데이터 변경 사항을 체크하라는 함수 호출
-                //           adapter.notifyDataSetChanged();
+
             } catch (JSONException e) {
                 e.printStackTrace();
             }

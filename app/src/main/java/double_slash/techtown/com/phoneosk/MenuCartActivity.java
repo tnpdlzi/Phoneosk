@@ -340,19 +340,6 @@ public class MenuCartActivity extends AppCompatActivity {
                 String message = MenuName.toString() + MenuPrice.toString() + MenuCount.toString() + edtRequest_Cart.getText().toString();
                 Log.d("message", message);
 
-                ChatDTO chat = new ChatDTO(table, message); //ChatDTO를 이용하여 데이터를 묶는다.
-                Log.d("chat", chat.toString());
-
-//                Map<String, ChatDTO> users = new HashMap<>();
-//                users.put("1", new ChatDTO(table, message));
-//                users.put("1", new ChatDTO("4", "hi im donggun"));
-
-//                databaseReference.child("Phoneosk").push().setValue(users);
-//                databaseReference.child("Phoneosk").child("1").push().setValue(chat); // 데이터 푸쉬
-
-//                String key = databaseReference.child("Phoneosk").push().getKey();
-//                databaseReference.child("Phoneosk").child("1").push().setValue(chat);
-
                 Map<String, Object> chatupdate = new HashMap<>();
                 chatupdate.put(table, message);
                 databaseReference.child("Phoneosk").child(storeID).updateChildren(chatupdate);
