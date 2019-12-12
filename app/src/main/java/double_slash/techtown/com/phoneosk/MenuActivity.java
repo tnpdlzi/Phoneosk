@@ -377,7 +377,7 @@ public class MenuActivity extends AppCompatActivity {
             tvPosition.setText(address);
             Log.d("address", address);
 
-            tvPhoneNumber.setText(phone);
+            tvPhoneNumber.setText("0" + phone);
             Log.d("phone", phone);
 
 
