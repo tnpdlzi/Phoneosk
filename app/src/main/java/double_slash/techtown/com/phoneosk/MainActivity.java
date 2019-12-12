@@ -125,10 +125,9 @@ public class MainActivity extends AppCompatActivity {
             String stResult;
             RequestHttpUrlConnection requestHttpURLConnection = new RequestHttpUrlConnection();
             result = requestHttpURLConnection.request(url, values); // 해당 URL로 부터 결과물을 얻어온다.
-            stResult = requestHttpURLConnection.request("http://hycurium.cafe24.com/phoneosk/store.jsp", values);
 
             Log.d("data", values.toString());
-            return result + stResult;
+            return result;
         }
 
         @Override
@@ -189,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         }
-        
+
     }
 
 }
