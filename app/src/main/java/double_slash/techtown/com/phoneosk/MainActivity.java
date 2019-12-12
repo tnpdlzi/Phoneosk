@@ -189,38 +189,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         }
-        private void receiveStArray(String dataObject) {
-
-
-            try {
-                // String 으로 들어온 값 JSONObject 로 1차 파싱
-                JSONObject wrapObject = new JSONObject(dataObject);
-                // JSONObject 의 키 "list" 의 값들을 JSONArray 형태로 변환
-                name = wrapObject.getString("name");
-                address = wrapObject.getString("address");
-                phone = wrapObject.getString("phone");
-                open = wrapObject.getString("open");
-                close = wrapObject.getString("close");
-//                JSONArray jsonArray = new JSONArray(wrapObject.getString("DATAS"));
-//                for (int i = 0; i < jsonArray.length(); i++) {
-//                    // Array 에서 하나의 JSONObject 를 추출
-//                    JSONObject dataJsonObject = jsonArray.getJSONObject(i);
-//                    // 추출한 Object 에서 필요한 데이터를 표시할 방법을 정해서 화면에 표시
-//                    // 필자는 RecyclerView 로 데이터를 표시 함
-//                    //             mItems.add(new Item(dataJsonObject.getString("nation")+i,dataJsonObject.getString("name")+i,
-//                    //                     dataJsonObject.getString("address")+i,dataJsonObject.getString("age")));
-//
-//                    MenuNameParsed.add(i, dataJsonObject.getString("menuName"));
-//                    MenuPriceParsed.add(i, dataJsonObject.getString("price"));
-//                }
-                // Recycler Adapter 에서 데이터 변경 사항을 체크하라는 함수 호출
-                //           adapter.notifyDataSetChanged();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-
-        }
+        
     }
 
 }
