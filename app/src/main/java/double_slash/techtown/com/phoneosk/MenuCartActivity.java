@@ -160,14 +160,15 @@ public class MenuCartActivity extends AppCompatActivity {
                     break;
 
                 case R.id.linMenuAdd_Cart:
-                    Intent intent1 = new Intent(getApplicationContext(), MenuActivity.class);
-                    intent1.putStringArrayListExtra("MenuNameParsed", MenuName);
-                    intent1.putStringArrayListExtra("MenuPriceParsed", MenuPrice);
-                    intent1.putStringArrayListExtra("MenuCountParsed", MenuCount);
-                    intent1.putExtra("Check", "OK");
-                    intent1.putExtra("name", name);
-                    intent1.putExtra("address", address);
-                    startActivity(intent1);
+                    onBackPressed();
+//                    Intent intent1 = new Intent(getApplicationContext(), MenuActivity.class);
+//                    intent1.putStringArrayListExtra("MenuNameParsed", MenuName);
+//                    intent1.putStringArrayListExtra("MenuPriceParsed", MenuPrice);
+//                    intent1.putStringArrayListExtra("MenuCountParsed", MenuCount);
+//                    intent1.putExtra("Check", "OK");
+//                    intent1.putExtra("name", name);
+//                    intent1.putExtra("address", address);
+//                    startActivity(intent1);
                     break;
 
                 case R.id.linCart_Cart:
