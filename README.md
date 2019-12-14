@@ -6,6 +6,13 @@
 
 폰오스크 JSP : https://github.com/tnpdlzi/PhoneoskJSP
 
+폰오스크 제안서 : https://docs.google.com/document/d/19pcQ1jEzGUDAxSC8q8OjwoYJb2cGWYGvqtNH9KwbkRw/edit
+
+폰오스크 설계서 : https://docs.google.com/document/d/16yB5AGOmpYUH0m8JvX75ScUIgCreVREy9NssbDT0Y7Q/edit
+
+폰오스크 최종 보고서 : https://docs.google.com/document/d/1zcvsctMj3EHM2IqwG3JBGfbkuNKn2maQ2yxDn7vXtFc/edit
+
+
 프로젝트 개요
 
 1.1 제안 배경
@@ -118,3 +125,14 @@ MenuActivity.java로부터 받은 값을 아이템으로 나타내준다. qr 메
 FinalActivity.java
 
 FinalActivity에선 사용자가 주문한 내역과 요청사항 등을 출력하는 것으로 끝나게 된다.
+
+
+데이터베이스는 table 이름으로 Store 와 Menu 의 두 가지가 있다.
+
+Store의 컬럼으로는 storeID, name, address, phone, open, close 가 있고 Menu의 컬럼으로는 storeID, menuID, menuName, price 가 있다.
+
+해당 부분의 데이터를 읽어오는 것은 JSP를 이용한 서버에서 실행되고 있다.
+
+JSP는 자바7, apache tomcat 8.5 버전을 사용중이며 데이터베이스는 mariaDB를 사용한다.
+
+JSP 서버에 관한 자세한 사항은 https://github.com/tnpdlzi/PhoneoskJSP 다음의 링크를 참고한다.
