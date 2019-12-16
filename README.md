@@ -136,3 +136,5 @@ Store의 컬럼으로는 storeID, name, address, phone, open, close 가 있고 M
 JSP는 자바7, apache tomcat 8.5 버전을 사용중이며 데이터베이스는 mariaDB를 사용한다.
 
 JSP 서버에 관한 자세한 사항은 https://github.com/tnpdlzi/PhoneoskJSP 다음의 링크를 참고한다.
+
+현재 데이터베이스에는 StoreID 1 과 2 만 존재하므로 테스트를 원할 경우에는 QR코드 생성 사이트를 통해 텍스트 1 과 2 만 만들어 테스트해 보면 된다. 1은 서가앤쿡, 2는 맘스터치이다.
